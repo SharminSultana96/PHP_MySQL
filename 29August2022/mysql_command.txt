@@ -1,0 +1,8 @@
+################Find out Highest marks###################
+DELIMITER &&  
+CREATE PROCEDURE display_max_mark (OUT highestmark INT)  
+BEGIN  
+    SELECT MAX(marks) INTO highestmark FROM student_info;   
+END &&  
+DELIMITER ;  
+CALL display_max_mark (OUT highestmark INT) ;

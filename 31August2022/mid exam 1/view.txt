@@ -1,0 +1,18 @@
+SELECT id, product.id, product.name, product.price, manufacturer.name 
+FROM product, manufacturer WHERE manufacturer.id=product.manufacturer_id
+
+CREATE VIEW product_list_view AS
+SELECT id, p.id, p.name, p.price, m.name 
+FROM product p, manufacturer m WHERE manufacturer.id=product.manufacturer_id
+
+#################CREATE ROUTINE###############
+INSERT INTO manufacturer VALUES(NULL, m_name, m_address, m_contact)
+
+###############CREATE PROCEDURE####################
+CREATE PROCEDURE `add_manufacturer`(IN `m_name` VARCHAR(50), IN `m_address` VARCHAR(100), IN `m_contact` VARCHAR(20)) 
+NOT DETERMINISTIC CONTAINS SQL 
+SQL SECURITY DEFINER 
+INSERT INTO manufacturer 
+VALUES(NULL, m_name, m_address, m_contact)
+#############DROP PROCEDURE#################
+DROP PROCEDURE IF EXISTS `add_manufacturer`

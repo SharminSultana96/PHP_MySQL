@@ -1,0 +1,9 @@
+SHA1=(Secure Hash Algorithm 1)
+
+id INT, ai, primary key, NOT NULL,
+name VARCHAR(30), NOT NULL,
+email UNIQUE, VARCHAR(30), NOT NULL,
+password VHAR(64), NOT NULL,
+
+INSERT INTO `users`(`id`, `name`, `email`, `password`) VALUES ('', 'sultana', 'sultana@gmail.com', sha1('jjhghd7568'));
+

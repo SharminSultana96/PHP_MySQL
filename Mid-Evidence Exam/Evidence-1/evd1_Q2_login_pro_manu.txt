@@ -1,0 +1,53 @@
+###########################Question No:(1)############################
+CREATE DATABASE:
+CREATE DATABASE company;
+CREATE TABLE `company`.`user` (`id` INT(10) NOT NULL AUTO_INCREMENT ,
+ `username` VARCHAR(20) NOT NULL , `password` VARCHAR(30) NOT NULL , 
+PRIMARY KEY (`id`)) ENGINE = InnoDB; 
+INSERT INTO `user` (`id`, `username`, `password`) VALUES 
+('1', 'Sharmin', 'sharmin123'), ('2', 'Sultana', 'sultana9888');
+
+##########################Question No:(2)##############################
+###############Tables:################
+	product
+	manufacturer
+CREATE TABLE:
+Product:
+CREATE TABLE product ( id int(5), name varchar(50), price int(5), 
+manufacturer_id int(10), PRIMARY KEY(id) );
+Input Data:
+INSERT INTO `product` (`id`, `name`, `price`, `manufacturer_id`) 
+VALUES ('1', 'LG 32 inch TV', '32000', '1'), ('2', 'LG Washing Machine', '30000', '1'), 
+('3', 'LG Freeze', '40000', '1');
+INSERT INTO `product` (`id`, `name`, `price`, `manufacturer_id`) 
+VALUES ('4', 'Walton AC', '35000', '2'), ('5', 'Walton Mobile', '20000', '2'), 
+('6', 'Walton Mixer Grainder', '8000', '2');
+Manufacturer:
+CREATE TABLE manufacturer ( id int(5), name varchar(50), 
+address varchar(100), contact_no varchar(50), PRIMARY KEY(id) );
+Input Data:
+INSERT INTO `manufacturer` (`id`, `name`, `address`, `contact_no`) VALUES 
+('1', 'LG', 'Mirpur/1,Dhaka', '01865323177'), ('2', 'Walton', 'Uttora/11,Dhaka', '01986532347');
+
+Delete Data:
+DELETE FROM product WHERE manufacturer_id = OLD.id
+SELECT productName,productDescription FROM products WHERE 
+MATCH(productDescription) AGAINST ('Wheels');
+SELECT productName,productDescription FROM products WHERE 
+productDescription LIKE '%Wheels%' 
+########################Question No:(3)################################
+INSERT INTO product VALUES(NULL, manu_name, manu_add, manu_phn);
+######################Question No:(4)##################################
+CREATE VIEW:
+SELECT product.id, product.name, product.price, manufacturer.id 
+FROM product, manufacturer WHERE manufacturer.id = product.manufacturer_id;
+
+CREATE VIEW product_list_view AS SELECT p.id, p.name as product_name, 
+p.price, m.name as manufacturer_id FROM manufacturer m, product p 
+WHERE m.id = p.manufacturer_id AND p.price > 5000;
+
+
+
+
+
+

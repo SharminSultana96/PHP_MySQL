@@ -1,0 +1,4 @@
+FILES:
+products.php
+manufacturer.php
+DELETE FROM product WHERE manufacturer_id = OLD.id

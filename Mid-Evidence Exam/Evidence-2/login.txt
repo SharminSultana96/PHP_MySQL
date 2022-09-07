@@ -1,0 +1,41 @@
+################Question No:(1)##########################
+CREATE DATABASE:
+CREATE TABLE:
+CREATE TABLE `idb-bisew`.`user` (`id` INT(10) NOT NULL AUTO_INCREMENT ,
+ `email` VARCHAR(20) NOT NULL , `password` VARCHAR(30) NOT NULL , 
+PRIMARY KEY (`id`)) ENGINE = InnoDB; 
+INSERT INTO `users` (`id`, `email`, `password`) VALUES 
+(NULL, 'admin@admin.com', 'abcde12345'), (NULL, 'sharmin1111@gmail.com', '1111');
+
+######################Question No:(2)#####################
+INSERT INTO `students` (`st_id`, `st_name`, `st_address`, `st_mobile`) VALUES 
+(NULL, 'sharmin', 'Basabo', '01976364346'), 
+(NULL, 'Aklima', 'Mirpur/11', '01849876857'), 
+(NULL, 'Jannat', 'Jatrabari', '09892734735'), 
+(NULL, 'Tanjina', 'Dhanmondi/32', '0286475456');
+
+INSERT INTO `results` (`r_id`, `module_name`, `total_marks`, `rstudent_id`) 
+VALUES (NULL, 'HTML', '60', '1'), (NULL, 'JavaScript', '70', '1'), (NULL, 'CSS', '75', '2'), 
+(NULL, 'JavaScript', '70', '2'), (NULL, 'Bootstrap', '80', '3'), (NULL, 'HTML', '76', '3'), 
+(NULL, 'PHP', '90', '4'), (NULL, 'MySQL', '85', '4');
+Create Triggers:
+DELETE FROM results WHERE rstudent_id = OLD.st_id;
+
+###############################Question No:(3)#####################################
+CREATE DEFINER=`'localhost', '`@`root'` 
+PROCEDURE `add_students`(IN `st_name` VARCHAR(50), 
+IN `st_address` VARCHAR(100), IN `st_mobile` VARCHAR(20)) NOT DETERMINISTIC CONTAINS S
+QL SQL SECURITY DEFINER 
+Create Procedure:
+INSERT INTO students VALUES(NULL, st_name, st_address, st_mobile)
+
+###################Question No:(4)########################
+Check value:
+SELECT st_id, st_name, st_mobile, module_name, total_marks
+FROM students, results WHERE st_id = rstudent_id;
+SELECT st_id, st_name, st_mobile, module_name, total_marks
+FROM students, results WHERE st_id = rstudent_id ORDER BY st_name;
+CREATE VIEW:
+CREATE VIEW students_results_view AS
+SELECT st_id, st_name, st_mobile, module_name, total_marks
+FROM students, results WHERE st_id = rstudent_id ORDER BY st_name;

@@ -1,0 +1,9 @@
+SELECT productName,productDescription FROM productsWHERE MATCH(productDescription) AGAINST ('wheels');
+SELECT productName,productDescription FROM productsWHERE productDescription LIKE '%wheels%';
+##############mysql dump############
+mysqldump -u root -p wdpf51>E:\wdpf51_dump.sql
+mysqldump -u root -p wdpf51>wdpf51_dump.sql
+mysql -u root -p wdpf51_blank>E:\wdpf51.sql
+############Terminated###################
+SELECT * INTO OUTFILE "E:/student_info.txt"
+FIELDS TERMINATED BY '\t' LINES TERMINATED BY '\n' FROM wdpf51.student_info;
